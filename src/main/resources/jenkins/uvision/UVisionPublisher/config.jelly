@@ -1,0 +1,76 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+    <!--
+    This jelly script is used for per-project configuration.
+
+    See global.jelly for a general discussion about jelly script.
+    -->
+
+    <f:entry title="${%Coverage report directory}"
+       description="${%description.coverageReportDir}">
+        <f:textbox name="coverage.coverageReportDir" value="${instance.coverageReportDir}"/>
+
+    </f:entry>
+
+    <f:entry title="${%Coverage report file name}"
+       description="${%description.coverageReportFileName}">
+        <f:textbox name="coverage.coverageReportFileName" value="${instance.coverageReportFileName}"/>
+    </f:entry>
+
+    <f:entry title="${%Coverage Targets}"
+             description="${%description.metric.targets(rootURL)}">
+        <table>
+
+              <thead>
+                  <tr>
+                      <td width="10%"></td>
+                      <td width="70%"></td>
+                      <td width="20%">% ${%Coverage}</td>
+                  </tr>
+              </thead>
+
+              <tbody>
+                  <tr>
+                      <th>
+                          <img src="${rootURL}/images/16x16/health-80plus.gif" alt="100%"
+                               title="${%Report health as 100% when coverage is greater than}" />
+                      </th>
+                      <td>
+                          ${%Report health as 100% when coverage is greater than}
+                      </td>
+                      <td>
+                          <f:textbox name="healthyTarget.coverage"
+                                     value="${instance.healthyTarget.coverage}" size="3"  />
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>
+                          <img src="${rootURL}/images/16x16/health-00to19.gif" alt="0%"
+                               title="${%Report health as 0% when coverage is less than}" />
+                      </th>
+                      <td>
+                          ${%Report health as 0% when coverage is less than}
+                      </td>
+                      <td>
+                          <f:textbox name="unhealthyTarget.coverage"
+                                     value="${instance.unhealthyTarget.coverage}" size="3" />
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>
+                          <img src="${rootURL}/images/16x16/yellow.gif" alt="0%"
+                               title="${%Mark the build as unstable when coverage is less than}" />
+                      </th>
+                      <td>
+                          ${%Mark the build as unstable when coverage is less than}
+                      </td>
+                      <td>
+                          <f:textbox name="failingTarget.coverage"
+                                     value="${instance.failingTarget.coverage}" size="3" />
+                      </td>
+                  </tr>
+              </tbody>
+
+        </table>
+    </f:entry>    
+                         
+</j:jelly>

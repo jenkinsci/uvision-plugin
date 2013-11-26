@@ -1,0 +1,72 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout"
+         xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+    
+    <l:layout xmlns:uvision ="/jenkins/uvision/tags">
+    <st:include it="${it.owner}" page="sidepanel.jelly" />
+    <l:main-panel>
+
+        <h1>${%uVision Coverage Report}</h1>  
+          
+        <table class="sortable" border="1">
+            
+            <uvision:captionLine/>
+
+            <j:forEach var="d" items="${it.successfulTestses}">
+                <j:forEach var="c" items="${d.tests}">
+                    <tr>
+                        <td>
+                            <st:out value="${c.file}" />                    
+                        </td>
+                        <td>
+                            <st:out value="${c.name}" />                    
+                        </td>
+                        <td>
+                            <st:out value="${c.coverage}" />                    
+                        </td>
+                        <td>
+                            <st:out value="${c.instructions}" />                    
+                        </td>
+                    </tr>
+                 </j:forEach>
+             </j:forEach>
+
+         </table>
+
+        <h1>${%Test Statistics}</h1>  
+        
+            <table border="1">
+                    <tr>
+                        <th>${%Tests}</th>
+                        <th>${%Failures Total}</th>
+                        <th>${%Errors}</th>
+                        <th>${%Ignored}</th>
+                        <th>${%Failures}</th>
+                        <th>${%Duration}</th>
+                    </tr> 
+
+               <j:forEach var="c" items="${it.statisticses}">                
+                    <tr>
+                        <td>
+                            <st:out value="${c.tests}" />                    
+                        </td>
+                        <td>
+                            <st:out value="${c.failuresTotal}" />                    
+                        </td>
+                        <td>
+                            <st:out value="${c.errors}" />                    
+                        </td>
+                        <td>
+                            <st:out value="${c.ignored}" />                    
+                        </td>
+                        <td>
+                            <st:out value="${c.failures}" />                    
+                        </td>
+                        <td>
+                            <st:out value="${c.duration}" />                    
+                        </td>
+                    </tr>                 
+             </j:forEach>                  
+        </table>
+    </l:main-panel>
+    </l:layout>
+</j:jelly>
