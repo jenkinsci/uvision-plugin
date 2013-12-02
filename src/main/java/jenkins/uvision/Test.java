@@ -15,15 +15,22 @@ public class Test {
     private String name;
     private String coverage;
     private String instructions;
+    private String margin;
     private String id;
     private String duration;
 
     
     public String getId() {
+        if (id == null) {
+            return "N/A";
+        }
         return id;
     }
 
     public String getDuration() {
+        if (id == null) {
+            return "N/A";
+        }
         return duration;
     }
 
@@ -82,6 +89,14 @@ public class Test {
 
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+    public String getMargin() {
+        return margin;
+    }
+
+    public void setMargin(String margin) {
+        this.margin = margin;
     }
     
     

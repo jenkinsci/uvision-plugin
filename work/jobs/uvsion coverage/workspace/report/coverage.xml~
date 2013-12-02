@@ -22,12 +22,4 @@
 	  <Instructions>1of1</Instructions>	  
     </Test>
   </SuccessfulTests>
-  <Statistics>
-    <Tests>14</Tests>
-    <FailuresTotal>0</FailuresTotal>
-    <Errors>0</Errors>
-    <Ignored>0</Ignored>
-    <Failures>0</Failures>
-    <Duration>0.00306294</Duration>
-  </Statistics>
 </TestRun>

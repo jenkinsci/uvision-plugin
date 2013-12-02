@@ -21,10 +21,19 @@
                             <st:out value="${c.name}" />                    
                         </td>
                         <td>
+                            <st:out value="${c.id}" />                    
+                        </td>
+                        <td>
                             <st:out value="${c.coverage}" />                    
                         </td>
                         <td>
                             <st:out value="${c.instructions}" />                    
+                        </td>
+                        <td>
+                            <st:out value="${c.duration}" />                    
+                        </td>
+                        <td>
+                            <st:out value="${c.margin}" />                    
                         </td>
                     </tr>
                  </j:forEach>

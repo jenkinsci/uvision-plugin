@@ -39,6 +39,10 @@ public class TestRun {
     }
 
     public Vector<Statistics> getStatisticses() {
+        if(statisticses.isEmpty()){
+            statistics = new Statistics("N/A", "N/A", "N/A", "N/A", "N/A", "N/A");
+            statisticses.add(statistics);
+        }
         return statisticses;
     }
 
@@ -46,7 +50,7 @@ public class TestRun {
         this.statistics = statistics;
     }
 
-    public Statistics getStatistics() {
+    public Statistics getStatistics() {        
         return statistics;
     }  
 

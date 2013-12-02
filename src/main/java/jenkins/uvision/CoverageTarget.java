@@ -47,6 +47,23 @@ public class CoverageTarget {
         return total/count;
     }
     
+    public TestRun setMargin(TestRun result)
+    {
+        float average = getAverageCoverage(result);
+        
+        for (SuccessfulTests successfulTests : result.getSuccessfulTestses()) {
+            for (Test test : successfulTests.getTests()) {
+                float coverage = Float.parseFloat(test.getCoverage());
+                Integer margin = (int) (((coverage - average)/average) * 100);
+                test.setMargin(margin.toString());
+            }
+        }
+        
+        return result;
+    }
+    
+    
+    
     public Integer getRangeScores(CoverageTarget min, TestRun coverage) {
         Integer result = 0;
         result = calcRangeScore(getCoverage(), min.getCoverage(), getAverageCoverage(coverage));

@@ -4,7 +4,10 @@
     <tr>
         <th>${%File}</th>
         <th>${%Function}</th>
+        <th>${%Id}</th>
         <th>${%Coverage} %</th>
         <th>${%Number of Instructions}</th>
+        <th>${%Duration}</th>
+        <th>${%Margin to Average} %</th>     
     </tr>
 </j:jelly>

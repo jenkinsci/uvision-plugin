@@ -18,6 +18,20 @@ public class Statistics {
     private String failures;
     private String duration;
 
+    public Statistics() {
+    }
+    
+    
+    public Statistics(String tests, String failuresTotal, String errors, String ignored, String failures, String duration) {
+        this.tests = tests;
+        this.failuresTotal = failuresTotal;
+        this.errors = errors;
+        this.ignored = ignored;
+        this.failures = failures;
+        this.duration = duration;
+    }
+
+    
     public String getTests() {
         return tests;
     }

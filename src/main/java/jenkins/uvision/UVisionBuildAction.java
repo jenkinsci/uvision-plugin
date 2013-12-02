@@ -64,7 +64,7 @@ public class UVisionBuildAction implements HealthReportingAction, StaplerProxy {
         TestRun projectCoverage = getResult();
         Integer score = 100;
         score = healthyTarget.getRangeScores(unhealthyTarget, projectCoverage);
-              
+        
         return new HealthReport(score, "Code Coverage is " + healthyTarget.getAverageCoverage(projectCoverage) + "%");
     }
 
@@ -96,7 +96,7 @@ public class UVisionBuildAction implements HealthReportingAction, StaplerProxy {
         try {
 
             TestRun r = CoverageParser.parse(reportFile);
-
+            r = healthyTarget.setMargin(r);
             r.setOwner(owner);
 
             report = new WeakReference<TestRun>(r);
